@@ -1,1 +1,104 @@
+/* ==========================================================================
+   Fluxo — Estilos personalizados (Dashboard Principal)
+   Aluno: Anderson Ribeiro de Lima Filho — RM: 574110
+   Mantidos em arquivo separado do HTML, conforme o enunciado da atividade.
+   Complementa o Tailwind CDN com o que ele não cobre por utilitários:
+   o gráfico de rosca (donut) feito 100% em CSS e pequenos componentes.
+   ========================================================================== */
 
+/* --- Ícones da navegação lateral --- */
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  color: #94a3b8; /* slate-400 */
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.nav-icon:hover {
+  background-color: #f1f5f9; /* slate-100 */
+  color: #1f6bff; /* fluxo-blue */
+}
+.nav-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.nav-icon--active {
+  background-color: #e8f0ff;
+  color: #1f6bff; /* fluxo-blue */
+}
+
+/* --- Pontos coloridos da legenda --- */
+.legend-dot {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+/* --- Ícones dos orçamentos --- */
+.budget-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.75rem;
+  flex-shrink: 0;
+}
+.budget-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* --- Tags de Receita / Despesa nos lançamentos --- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tag--income {
+  background-color: #dcfce7; /* emerald-100 */
+  color: #15803d; /* green-700 */
+}
+.tag--expense {
+  background-color: #fee2e2; /* red-100 */
+  color: #b91c1c; /* red-700 */
+}
+
+/* --- Gráfico de rosca (donut) 100% em CSS --------------------------------
+   Valores: Faculdade 350, Alimentação 280, Transporte 120, Lazer 85, Outros 63
+   Total = 898. Percentuais acumulados (conic-gradient):
+     Faculdade  350 -> 38.97%   (0     -> 38.97)
+     Alimentação 280 -> 31.18%  (38.97 -> 70.15)
+     Transporte 120 -> 13.36%   (70.15 -> 83.51)
+     Lazer       85 -> 9.47%    (83.51 -> 92.98)
+     Outros      63 -> 7.02%    (92.98 -> 100)
+   -------------------------------------------------------------------------- */
+.donut {
+  position: relative;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  background: conic-gradient(
+    #1f6bff 0% 38.97%,
+    #22b573 38.97% 70.15%,
+    #f59e0b 70.15% 83.51%,
+    #8b3fc0 83.51% 92.98%,
+    #eab308 92.98% 100%
+  );
+}
+.donut-hole {
+  position: absolute;
+  inset: 1.6rem; /* espessura do anel */
+  background-color: #ffffff;
+  border-radius: 9999px;
+}
